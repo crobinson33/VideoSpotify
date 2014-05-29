@@ -4,14 +4,14 @@ angular.module('ChoobiApp', [
   'UserApp',
   'youtube'
 ])
-.run(function($rootScope, user) {
+/*.run(function($rootScope, user, $youtube) {
 	console.log("user stuff");
-	//user.init({ appId: '53797a9b5ce08' });
-})
+	user.init({ appId: '53797a9b5ce08' });
+})*/
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider
 	.when("/home", { templateUrl: "partials/home.html", controller: "homeController", public: false})
 	.when('/login', { templateUrl: 'partials/login.html', login: true})
-	.when('/signup', {templateUrl: 'partials/signup.html', public: true})
+	.when('/signup', { templateUrl: 'partials/signup.html', public: true})
 	.otherwise({redirectTo: '/home'});
 }]);

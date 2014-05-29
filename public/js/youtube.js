@@ -1,7 +1,7 @@
 angular.module('youtube', [
     'ng'
 ])
-.run(function (user) {
+.run(function (user, $youtube) {
     console.log(".run");
     user.init({ appId: '53797a9b5ce08' });
     
@@ -41,9 +41,17 @@ angular.module('youtube', [
                 height: this.playerHeight,
                 width: this.playerWidth,
                 videoId: this.videoId,
+                suggestedQuality: 'hd1080',
                 events: {
                     onReady: onPlayerReady,
                     onStateChange: onPlayerStateChange
+                },
+                playerVars: {
+                    modestbranding: 0,
+                    //controls: 0, //remove controls
+                    showinfo: 0,
+                    enablejsapi : 1,
+                    iv_load_policy: 3 //turn off annotations
                 }
             });
         },
